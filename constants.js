@@ -1,6 +1,7 @@
 "use strict";
 const root = require('./helpers.js').root
 const ip = require('ip');
+const GoogleFontsPlugin = require("google-fonts-webpack-plugin");
 
 exports.HOST = ip.address();
 exports.DEV_PORT = 3000;
@@ -69,6 +70,13 @@ exports.MY_VENDOR_DLLS = [
 
 exports.MY_CLIENT_PLUGINS = [
   // use this to import your own webpack config Client plugins.
+  new GoogleFontsPlugin({
+    fonts: [
+      { family: "Saira Extra Condensed", variants: [ "400", "700" ] },
+      { family: "Open Sans" }
+    ]
+    /* ...options */
+  })
 ]
 
 exports.MY_CLIENT_PRODUCTION_PLUGINS = [
@@ -77,6 +85,8 @@ exports.MY_CLIENT_PRODUCTION_PLUGINS = [
 
 exports.MY_CLIENT_RULES = [
   // use this to import your own rules for Client webpack config.
+  { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+  { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
 ]
 
 exports.MY_TEST_RULES = [

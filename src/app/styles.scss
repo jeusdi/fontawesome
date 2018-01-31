@@ -1,5 +1,16 @@
 /* styles.css will be extracted to main dist folder and is imported in index.html */
 /* This file is for importing 3rd party styles  */
 
-@import 'variables';
+// Core variables and mixins
+@import "scss/variables.scss";
+@import "scss/mixins.scss";
+// Global CSS
 @import 'bootstrap/scss/bootstrap.scss';
+@import "scss/global.scss";
+@import "scss/nav.scss";
+@import "scss/resume-item.scss";
+@import "scss/bootstrap-overrides.scss";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "font-awesome/scss/font-awesome";
+@import "devicons/css/devicons.scss";
